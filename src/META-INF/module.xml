@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root>
+    <module jar="org-iesapp-modules-guardies.jar" class="org.iesapp.modules.guardies.GuardiesModule" autoStart="no" multipleInstance="no" closable="yes">
+        <anchor location="menu" parentId="jMenuModules"/>
+        <anchor location="toolbar" parentId="jToolBarModules"/>
+        <display location="topwindow" parentId="center"/>
+        <bundle>
+            <locale key="title" value="ca"><![CDATA[Guàrdies]]></locale>
+            <locale key="title" value="es"><![CDATA[Guardias]]></locale>
+            <locale key="title" value="default"><![CDATA[On Duty]]></locale>
+            <locale key="description" value="default"><![CDATA[This module allows to control teacher's absences]]></locale>
+        </bundle>
+        
+        <metaINF author="Josep Mulet Pol (c) 2012" version="1.4" dependencies=""/>
+    </module>    
+</root>

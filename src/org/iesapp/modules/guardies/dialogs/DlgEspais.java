@@ -24,6 +24,7 @@ import org.iesapp.framework.table.CellTableState;
 import org.iesapp.framework.table.MyCheckBoxRenderer;
 import org.iesapp.framework.table.MyIconLabelRenderer;
 import org.iesapp.framework.util.CoreCfg;
+import org.iesapp.framework.util.IconUtils;
 import org.iesapp.modules.guardies.util.Cfg;
 
 /**
@@ -98,17 +99,6 @@ public class DlgEspais extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Editor d'espais");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
         modelTable1 = new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -117,12 +107,9 @@ public class DlgEspais extends javax.swing.JDialog {
                 "id", "Aula", "Descripció", "Zona guardia", "Disp. guardia",  "Disp. reserva"
             }
         );
-
-        String[] icons = new String[] {
-            "/org/iesapp/modules/guardies/icons/delete.gif"
-        };
-
         jTable1.setModel(modelTable1);
+        Icon[] icons = new Icon[] {IconUtils.getDeleteIcon()};
+
         jTable1.getTableHeader().setReorderingAllowed(false);
 
         jTable1.getColumnModel().getColumn(0).setCellRenderer(new MyIconLabelRenderer(icons));
@@ -148,7 +135,7 @@ public class DlgEspais extends javax.swing.JDialog {
 
         jLabel1.setText("Aules o espais disponibles");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/exit.gif"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/exit.gif"))); // NOI18N
         jButton1.setText("Aplica i Tanca");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -156,7 +143,7 @@ public class DlgEspais extends javax.swing.JDialog {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/insert.gif"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/insert.gif"))); // NOI18N
         jButton2.setText("Inserta");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,7 +165,7 @@ public class DlgEspais extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 618, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addComponent(jLabel1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)

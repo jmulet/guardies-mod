@@ -7,6 +7,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -70,13 +71,8 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="jTable1">
           <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="4">
-                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                <Column editable="true" title="Title 4" type="java.lang.Object"/>
-              </Table>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="modelTable1" type="code"/>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
@@ -111,7 +107,8 @@
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable()&#xa;{&#xa;    public boolean isCellEditable(int rowIndex, int colIndex) {&#xa;        if(colIndex==0)&#xa;        return false;   //Disallow the editing of any cell&#xa;        else&#xa;        return true;&#xa;    }&#xa;}&#xa;"/>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="modelTable1 = new javax.swing.table.DefaultTableModel(&#xa;            new Object [][] {&#xa;&#xa;            },&#xa;            new String [] {&#xa;                &quot;id&quot;, &quot;Aula&quot;, &quot;Descripci&#xf3;&quot;, &quot;Zona guardia&quot;, &quot;Disp. guardia&quot;,  &quot;Disp. reserva&quot;&#xa;            }&#xa;        );&#xa;&#xa;String[] icons = new String[] {&#xa;   &quot;/iesapp/guardies/icons/delete.gif&quot;&#xa;};&#xa;&#xa;jTable1.setModel(modelTable1);&#xa;jTable1.getTableHeader().setReorderingAllowed(false);&#xa;&#xa;jTable1.getColumnModel().getColumn(0).setCellRenderer(new MyIconLabelRenderer(icons));&#xa;jTable1.getColumnModel().getColumn(4).setCellRenderer(new MyCheckBoxRenderer());&#xa;jTable1.getColumnModel().getColumn(5).setCellRenderer(new MyCheckBoxRenderer());&#xa;&#xa;JCheckBox checkBox = new JCheckBox();&#xa;checkBox.setHorizontalAlignment(JLabel.CENTER);&#xa;DefaultCellEditor checkBoxEditor = new DefaultCellEditor(checkBox);&#xa;&#xa;jTable1.getColumnModel().getColumn(4).setCellEditor(checkBoxEditor);&#xa;jTable1.getColumnModel().getColumn(5).setCellEditor(checkBoxEditor);&#xa;&#xa;jTable1.getColumnModel().getColumn(0).setPreferredWidth(30);&#xa;jTable1.getColumnModel().getColumn(3).setPreferredWidth(80);&#xa;jTable1.setRowHeight(32);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="Icon[] icons = new Icon[] {IconUtils.getDeleteIcon()};&#xa;&#xa;jTable1.getTableHeader().setReorderingAllowed(false);&#xa;&#xa;jTable1.getColumnModel().getColumn(0).setCellRenderer(new MyIconLabelRenderer(icons));&#xa;jTable1.getColumnModel().getColumn(4).setCellRenderer(new MyCheckBoxRenderer());&#xa;jTable1.getColumnModel().getColumn(5).setCellRenderer(new MyCheckBoxRenderer());&#xa;&#xa;JCheckBox checkBox = new JCheckBox();&#xa;checkBox.setHorizontalAlignment(JLabel.CENTER);&#xa;DefaultCellEditor checkBoxEditor = new DefaultCellEditor(checkBox);&#xa;&#xa;jTable1.getColumnModel().getColumn(4).setCellEditor(checkBoxEditor);&#xa;jTable1.getColumnModel().getColumn(5).setCellEditor(checkBoxEditor);&#xa;&#xa;jTable1.getColumnModel().getColumn(0).setPreferredWidth(30);&#xa;jTable1.getColumnModel().getColumn(3).setPreferredWidth(80);&#xa;jTable1.setRowHeight(32);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="modelTable1 = new javax.swing.table.DefaultTableModel(&#xa;            new Object [][] {&#xa;&#xa;            },&#xa;            new String [] {&#xa;                &quot;id&quot;, &quot;Aula&quot;, &quot;Descripci&#xf3;&quot;, &quot;Zona guardia&quot;, &quot;Disp. guardia&quot;,  &quot;Disp. reserva&quot;&#xa;            }&#xa;        );"/>
           </AuxValues>
         </Component>
       </SubComponents>

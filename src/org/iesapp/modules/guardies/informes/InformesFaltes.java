@@ -30,10 +30,10 @@ import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.AbstractAction;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JRootPane;
 import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
@@ -47,6 +47,7 @@ import jxl.write.WriteException;
 import org.iesapp.framework.table.CellTableState;
 import org.iesapp.framework.table.MyIconLabelRenderer;
 import org.iesapp.framework.table.TextAreaRenderer;
+import org.iesapp.framework.util.IconUtils;
 import org.iesapp.modules.guardies.GuardiesModule;
 import org.iesapp.modules.guardies.table.CellRendererInformes;
 import org.iesapp.modules.guardies.util.Cfg;
@@ -380,17 +381,6 @@ public class InformesFaltes extends javar.JRDialog {
 
         jLabel6.setText("Tipus d'informe");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
         modelTable1 = new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -400,7 +390,6 @@ public class InformesFaltes extends javar.JRDialog {
                 "4a hora", "5a hora", "6a hora", "7a hora"
             }
         );
-
         jTable1.setModel(modelTable1);
         jTable1.getTableHeader().setReorderingAllowed(false);
 
@@ -410,7 +399,8 @@ public class InformesFaltes extends javar.JRDialog {
         jTable1.getColumnModel().getColumn(1).setPreferredWidth(90);
 
         //Columna de data + comentari
-        String[] resources = new String[]{"/org/iesapp/modules/guardies/icons/blank.gif","/org/iesapp/modules/guardies/icons/postit.gif"};
+        Icon[] resources = new Icon[]{IconUtils.getBlankIcon(),
+            IconUtils.getIconResource(getClass().getClassLoader(), "org/iesapp/modules/guardies/icons/postit.gif")};
         jTable1.getColumnModel().getColumn(1).setCellRenderer(
             new MyIconLabelRenderer(resources));
 
@@ -431,7 +421,7 @@ public class InformesFaltes extends javar.JRDialog {
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/save.gif"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/save.gif"))); // NOI18N
         jButton1.setText("Desa");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -439,7 +429,7 @@ public class InformesFaltes extends javar.JRDialog {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/exit.gif"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/exit.gif"))); // NOI18N
         jButton2.setText("Tanca");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -447,7 +437,7 @@ public class InformesFaltes extends javar.JRDialog {
             }
         });
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/view.gif"))); // NOI18N
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/view.gif"))); // NOI18N
         jButton3.setText("Informe");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -481,16 +471,17 @@ public class InformesFaltes extends javar.JRDialog {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(615, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
-                .addContainerGap())
             .addComponent(jPanel3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 605, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -27,6 +27,7 @@ import javax.swing.table.TableColumnModel;
 import org.iesapp.clients.iesdigital.guardies.CellModel;
 import org.iesapp.framework.table.*;
 import org.iesapp.framework.util.CoreCfg;
+import org.iesapp.framework.util.IconUtils;
 import org.iesapp.modules.guardies.GuardiesModule;
 import org.iesapp.modules.guardies.util.Cfg;
 import org.iesapp.util.StringUtils;
@@ -56,11 +57,12 @@ public class CellsEditorAdvanced extends javax.swing.JDialog {
         mselRow = row;
         mselCol = col;
 
-        String [] opcions = {"Indeterminat", "Signat", "Falta", "Sortida"};
-        String[] resources = {"/org/iesapp/modules/guardies/icons/icon01.gif",
-                             "/org/iesapp/modules/guardies/icons/icon02.gif",
-                             "/org/iesapp/modules/guardies/icons/icon03.gif",
-                             "/org/iesapp/modules/guardies/icons/icon04.gif"};
+        String [] opcions = new String[] {"Indeterminat", "Signat", "Falta", "Sortida"};
+        Icon[] resources = new Icon[]{
+            IconUtils.getIconResource(getClass().getClassLoader(), "org/iesapp/modules/guardies/icons/icon01.gif"),
+            IconUtils.getIconResource(getClass().getClassLoader(), "org/iesapp/modules/guardies/icons/icon02.gif"),
+            IconUtils.getIconResource(getClass().getClassLoader(), "org/iesapp/modules/guardies/icons/icon03.gif"),
+            IconUtils.getIconResource(getClass().getClassLoader(), "org/iesapp/modules/guardies/icons/icon04.gif")};
 
      TableColumnModel cm = jTable1.getColumnModel();
 

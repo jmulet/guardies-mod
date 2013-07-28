@@ -35,6 +35,7 @@ import org.iesapp.framework.table.MyIconButtonRenderer;
 import org.iesapp.framework.table.TextAreaEditor;
 import org.iesapp.framework.table.TextAreaRenderer;
 import org.iesapp.framework.util.CoreCfg;
+import org.iesapp.framework.util.IconUtils;
 import org.iesapp.modules.guardies.GuardiesModule;
 import org.iesapp.modules.guardies.util.Cfg;
 import org.iesapp.util.StringUtils;
@@ -167,17 +168,6 @@ public class DlgFaltesPrevistes extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Faltes Previstes");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
         modelTable1 = new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -187,10 +177,8 @@ public class DlgFaltesPrevistes extends javax.swing.JDialog {
                 "Comnt. intern", "Comnt. guardia", "Té feina"
             }
         );
-
-        String[] icons = new String[] {
-            "/org/iesapp/modules/guardies/icons/delete.gif"
-        };
+        jTable1.setModel(modelTable1);
+        Icon[] icons = new Icon[] {IconUtils.getDeleteIcon()};
 
         jTable1.setModel(modelTable1);
         jTable1.getTableHeader().setReorderingAllowed(false);

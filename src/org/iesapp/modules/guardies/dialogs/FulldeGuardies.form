@@ -7,6 +7,7 @@
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
   </SyntheticProperties>
   <Events>
     <EventHandler event="windowGainedFocus" listener="java.awt.event.WindowFocusListener" parameters="java.awt.event.WindowEvent" handler="formWindowGainedFocus"/>
@@ -94,7 +95,7 @@
             </Property>
             <Property name="toolTipText" type="java.lang.String" value="Selecciona l&apos;hora de la gu&#xe0;rdia"/>
             <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-              <Color id="Cursor predeterminado"/>
+              <Color id="Cursor Por defecto"/>
             </Property>
           </Properties>
           <Events>
@@ -200,13 +201,8 @@
           <SubComponents>
             <Component class="javax.swing.JTable" name="jTable1">
               <Properties>
-                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                  <Table columnCount="4" rowCount="4">
-                    <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                    <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                  </Table>
+                <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                  <Connection code="modelTable1" type="code"/>
                 </Property>
               </Properties>
               <Events>
@@ -214,7 +210,8 @@
               </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable(){&#xa;    public boolean isCellEditable(int rowIndex, int colIndex) {&#xa;        if(colIndex != 6)&#xa;        return false;   //Disallow the editing of any cell&#xa;        else&#xa;        return true;&#xa;    }&#xa;}&#xa;"/>
-                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="modelTable1 = new javax.swing.table.DefaultTableModel(&#xa;            new Object [][] {&#xa;&#xa;            },&#xa;            new String [] {&#xa;                &quot;Professor/a&quot;, &quot;Dept.&quot;, &quot;Grup&quot;, &quot;Aula&quot;, &quot;Feina&quot;, &quot;Comentaris&quot;,&#xa;                &quot;Qui fa la Gu&#xe0;rdia?&quot;, &quot;On?&quot;&#xa;            }&#xa;        );&#xa;&#xa;jTable1.setModel(modelTable1);&#xa;&#xa;jTable1.setRowHeight(cfg.alturaCella);&#xa;jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);&#xa;jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);&#xa;jTable1.getColumnModel().getColumn(5).setPreferredWidth(200);&#xa;jTable1.getColumnModel().getColumn(6).setPreferredWidth(200);&#xa;&#xa;jTable1.getTableHeader().setReorderingAllowed(false);&#xa;jTable1.getColumnModel().getColumn(0).setCellRenderer(new CellRendererFaltes());&#xa;jTable1.getColumnModel().getColumn(1).setCellRenderer(new CellRendererFaltes());&#xa;jTable1.getColumnModel().getColumn(2).setCellRenderer(new CellRendererFaltes());&#xa;jTable1.getColumnModel().getColumn(3).setCellRenderer(new CellRendererFaltes2());&#xa;jTable1.getColumnModel().getColumn(4).setCellRenderer(new MyCheckBoxRenderer());&#xa;jTable1.getColumnModel().getColumn(5).setCellRenderer(new TextAreaRenderer());&#xa;jTable1.getColumnModel().getColumn(6).setCellRenderer(new CellRendererFaltes());&#xa;jTable1.getColumnModel().getColumn(7).setCellRenderer(new CellRendererFaltes());"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTable1.setRowHeight(cfg.alturaCella);&#xa;jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);&#xa;jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);&#xa;jTable1.getColumnModel().getColumn(5).setPreferredWidth(200);&#xa;jTable1.getColumnModel().getColumn(6).setPreferredWidth(200);&#xa;&#xa;jTable1.getTableHeader().setReorderingAllowed(false);&#xa;jTable1.getColumnModel().getColumn(0).setCellRenderer(new CellRendererFaltes());&#xa;jTable1.getColumnModel().getColumn(1).setCellRenderer(new CellRendererFaltes());&#xa;jTable1.getColumnModel().getColumn(2).setCellRenderer(new CellRendererFaltes());&#xa;jTable1.getColumnModel().getColumn(3).setCellRenderer(new CellRendererFaltes2());&#xa;jTable1.getColumnModel().getColumn(4).setCellRenderer(new MyCheckBoxRenderer());&#xa;jTable1.getColumnModel().getColumn(5).setCellRenderer(new TextAreaRenderer());&#xa;jTable1.getColumnModel().getColumn(6).setCellRenderer(new CellRendererFaltes());&#xa;jTable1.getColumnModel().getColumn(7).setCellRenderer(new CellRendererFaltes());"/>
+                <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="modelTable1 = new javax.swing.table.DefaultTableModel(&#xa;            new Object [][] {&#xa;&#xa;            },&#xa;            new String [] {&#xa;                &quot;Professor/a&quot;, &quot;Dept.&quot;, &quot;Grup&quot;, &quot;Aula&quot;, &quot;Feina&quot;, &quot;Comentaris&quot;,&#xa;                &quot;Qui fa la Gu&#xe0;rdia?&quot;, &quot;On?&quot;&#xa;            }&#xa;        );"/>
               </AuxValues>
             </Component>
           </SubComponents>
@@ -266,18 +263,14 @@
               <SubComponents>
                 <Component class="javax.swing.JTable" name="jTable2">
                   <Properties>
-                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-                      <Table columnCount="4" rowCount="4">
-                        <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                        <Column editable="true" title="Title 4" type="java.lang.Object"/>
-                      </Table>
+                    <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+                      <Connection code="modelTable2" type="code"/>
                     </Property>
                   </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable(){&#xa;    public boolean isCellEditable(int rowIndex, int colIndex) {&#xa;        return false;&#xa;    }&#xa;}"/>
-                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="modelTable2 = new javax.swing.table.DefaultTableModel(&#xa;            new Object [][] {&#xa;&#xa;            },&#xa;            new String [] {&#xa;                &quot;Professor/a de guardia&quot;, &quot;Lloc&quot;&#xa;            }&#xa;        );&#xa;&#xa;jTable2.setModel(modelTable2);&#xa;jTable2.setRowHeight(30);&#xa;&#xa;jTable2.getColumnModel().getColumn(0).setPreferredWidth(200);&#xa;jTable2.setModel(modelTable2);&#xa;jTable2.getTableHeader().setReorderingAllowed(false);&#xa;&#xa;String[] icons = new String[]{&quot;/iesapp/guardies/icons/blank.gif&quot;}; &#xa;&#xa;jTable2.getColumnModel().getColumn(0).setCellRenderer(new CellRendererFaltes2());&#xa;jTable2.getColumnModel().getColumn(1).setCellRenderer(new MyIconLabelRenderer(icons));"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTable2.setRowHeight(30);&#xa;&#xa;jTable2.getColumnModel().getColumn(0).setPreferredWidth(200);&#xa;jTable2.setModel(modelTable2);&#xa;jTable2.getTableHeader().setReorderingAllowed(false);&#xa;&#xa;Icon[] icons = new Icon[]{IconUtils.getBlankIcon()}; &#xa;&#xa;jTable2.getColumnModel().getColumn(0).setCellRenderer(new CellRendererFaltes2());&#xa;jTable2.getColumnModel().getColumn(1).setCellRenderer(new MyIconLabelRenderer(icons));"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="modelTable2 = new javax.swing.table.DefaultTableModel(&#xa;            new Object [][] {&#xa;&#xa;            },&#xa;            new String [] {&#xa;                &quot;Professor/a de guardia&quot;, &quot;Lloc&quot;&#xa;            }&#xa;        );"/>
                   </AuxValues>
                 </Component>
               </SubComponents>

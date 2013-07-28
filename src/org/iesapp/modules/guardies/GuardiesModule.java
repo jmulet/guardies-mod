@@ -59,7 +59,6 @@ import org.iesapp.clients.iesdigital.guardies.RowModel;
 import org.iesapp.clients.iesdigital.professorat.BeanProfessor;
 import org.iesapp.clients.iesdigital.spaces.BeanEspai;
 import org.iesapp.framework.admin.cfg.ChangePwd;
-import org.iesapp.framework.admin.cfg.DlgConfiguration;
 import org.iesapp.framework.admin.cfg.SgdConfig;
 import org.iesapp.framework.data.User;
 import org.iesapp.framework.dialogs.AboutDlg;
@@ -355,10 +354,7 @@ public class GuardiesModule extends TopModuleWindow {
         jMenuItem24 = new javax.swing.JMenuItem();
         jMenuItem19 = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem20 = new javax.swing.JMenuItem();
-        jMenu8 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane()
         ;
         jTable1 = new javax.swing.JTable(){
@@ -378,7 +374,7 @@ public class GuardiesModule extends TopModuleWindow {
                 return c;
             }
 
-            ImageIcon image = new ImageIcon( new ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/holiday.jpg")).getImage() );
+            ImageIcon image = new ImageIcon( new ImageIcon(getClass().getResource("/iesapp/guardies/icons/holiday.jpg")).getImage() );
             public void paint(java.awt.Graphics g )
             {
                 // tile the background image
@@ -632,15 +628,6 @@ public class GuardiesModule extends TopModuleWindow {
         jMenu6.add(jMenuItem19);
         jMenu6.add(jSeparator3);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F3, 0));
-        jMenuItem3.setText("Opcions generals");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu6.add(jMenuItem3);
-
         jMenuItem20.setText("Prefèrencies d'aplicació");
         jMenuItem20.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -650,19 +637,6 @@ public class GuardiesModule extends TopModuleWindow {
         jMenu6.add(jMenuItem20);
 
         jMenuBar1.add(jMenu6);
-
-        jMenu8.setText("Ajuda");
-
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F1, 0));
-        jMenuItem1.setText("Sobre l'aplicació");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu8.add(jMenuItem1);
-
-        jMenuBar1.add(jMenu8);
 
         jTable1.setOpaque(false);
         jTable1.setFillsViewportHeight( esfestiu );
@@ -707,7 +681,7 @@ public class GuardiesModule extends TopModuleWindow {
 
         jAlphabetPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 17, 5));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/guardiaIcon.gif"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/guardiaIcon.gif"))); // NOI18N
         jButton1.setText("Guàrdies");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -715,16 +689,16 @@ public class GuardiesModule extends TopModuleWindow {
             }
         });
 
-        legendaNoDeterminat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/icon01.gif"))); // NOI18N
+        legendaNoDeterminat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/icon01.gif"))); // NOI18N
         legendaNoDeterminat.setText("Pendent");
 
-        legendaSignat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/icon02.gif"))); // NOI18N
+        legendaSignat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/icon02.gif"))); // NOI18N
         legendaSignat.setText("Signat");
 
-        legendaNoHiEs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/icon03.gif"))); // NOI18N
+        legendaNoHiEs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/icon03.gif"))); // NOI18N
         legendaNoHiEs.setText("Falta");
 
-        legendaSortida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/icon04.gif"))); // NOI18N
+        legendaSortida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/icon04.gif"))); // NOI18N
         legendaSortida.setText("Sortida");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentContainer());
@@ -1232,54 +1206,11 @@ public class GuardiesModule extends TopModuleWindow {
         startUp();
     }//GEN-LAST:event_jMenuItem19ActionPerformed
 
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-
-        /* Needs confirmation even when entering as Admin, just for security reasons*/
-        if(cfg.tactil>0)
-        {
-            ValidacioDlg2 dlg = new ValidacioDlg2(javar.JRDialog.getActiveFrame(), true, "Admin", coreCfg);
-            dlg.setLocationRelativeTo(null);
-            dlg.setVisible(true);
-            boolean pwd = dlg.isValidated;
-            dlg.dispose();
-            if(!pwd) {
-                return;
-            }
-        }
-        else
-        {
-            ValidacioDlg dlg = new ValidacioDlg(javar.JRDialog.getActiveFrame(), true, "Admin", coreCfg);
-            dlg.setLocationRelativeTo(null);
-            dlg.setVisible(true);
-            boolean pwd = dlg.isValidated;
-            dlg.dispose();
-            if(!pwd) {
-                return;
-            }
-        }
-
-        DlgConfiguration dlgframe = new DlgConfiguration(javar.JRDialog.getActiveFrame(), true);
-        dlgframe.setLocationRelativeTo(null);
-        dlgframe.setResizable(false);
-        dlgframe.setVisible(true);
-        dlgframe.dispose();
-        this.startUp(); //fa un hard reset
-
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
-
     private void jMenuItem20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem20ActionPerformed
         FormCfg dlg = new FormCfg(javar.JRDialog.getActiveFrame(), true, cfg);
         dlg.setLocationRelativeTo(null);
         dlg.setVisible(true);
     }//GEN-LAST:event_jMenuItem20ActionPerformed
-
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-
-        AboutDlg dlgframe = new AboutDlg(javar.JRDialog.getActiveFrame(), true, "Guàrdies", "Un programa per gestionar les guàrdies del professorat.", coreCfg);
-        dlgframe.setLocationRelativeTo(null);
-        dlgframe.setResizable(false);
-        dlgframe.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
 //    
 //    
@@ -2049,7 +1980,6 @@ public int alterStatus(int row, int col, int stat, boolean mode, int last)
             }
             jMenuItem25.setVisible(CoreCfg.admin);
         
-            jMenuItem3.setEnabled(CoreCfg.admin);
             jMenuItem5.setEnabled(CoreCfg.admin);
             jMenuItem12.setEnabled(CoreCfg.admin);
             jMenuItem13.setEnabled(CoreCfg.admin);
@@ -2079,9 +2009,7 @@ public int alterStatus(int row, int col, int stat, boolean mode, int last)
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
-    private javax.swing.JMenu jMenu8;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem12;
@@ -2099,7 +2027,6 @@ public int alterStatus(int row, int col, int stat, boolean mode, int last)
     private javax.swing.JMenuItem jMenuItem23;
     private javax.swing.JMenuItem jMenuItem24;
     private javax.swing.JMenuItem jMenuItem25;
-    public javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     public javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItem6;

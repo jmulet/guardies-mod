@@ -11,6 +11,7 @@
             <locale key="description" value="default"><![CDATA[This module allows to control teacher's absences]]></locale>
         </bundle>
         
-        <metaINF author="Josep Mulet Pol (c) 2012" version="1.4" dependencies=""/>
+        <metaINF author="Josep Mulet (c) 2012-13" version="1.4" url="https://github.com/jmulet/guardies-mod"
+                 minFrameworkVersion="4.5" minClientIDVersion="4.5" minClientSGDVersion="7.01.0065" dependencies=""/>
     </module>    
 </root>

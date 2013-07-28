@@ -28,6 +28,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.DefaultCellEditor;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.InputMap;
 import javax.swing.JComboBox;
@@ -45,6 +46,7 @@ import org.iesapp.framework.table.MyCheckBoxRenderer;
 import org.iesapp.framework.table.MyIconLabelRenderer;
 import org.iesapp.framework.table.TextAreaRenderer;
 import org.iesapp.framework.util.CoreCfg;
+import org.iesapp.framework.util.IconUtils;
 import org.iesapp.modules.guardies.GuardiesModule;
 import org.iesapp.modules.guardies.table.CellRendererFaltes;
 import org.iesapp.modules.guardies.table.CellRendererFaltes2;
@@ -248,17 +250,6 @@ jComboBox1.addActionListener(new java.awt.event.ActionListener() {
     jLabel4.setForeground(new java.awt.Color(204, 0, 0));
     jLabel4.setText("X  HORA ( xx:yy - xx:yy)");
 
-    jTable1.setModel(new javax.swing.table.DefaultTableModel(
-        new Object [][] {
-            {null, null, null, null},
-            {null, null, null, null},
-            {null, null, null, null},
-            {null, null, null, null}
-        },
-        new String [] {
-            "Title 1", "Title 2", "Title 3", "Title 4"
-        }
-    ));
     modelTable1 = new javax.swing.table.DefaultTableModel(
         new Object [][] {
 
@@ -268,9 +259,7 @@ jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             "Qui fa la Guàrdia?", "On?"
         }
     );
-
     jTable1.setModel(modelTable1);
-
     jTable1.setRowHeight(cfg.alturaCella);
     jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
     jTable1.getColumnModel().getColumn(0).setPreferredWidth(200);
@@ -296,17 +285,6 @@ jComboBox1.addActionListener(new java.awt.event.ActionListener() {
     jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
     jLabel5.setText("PROFESSORS DE GUARDIA I LLOC ASSIGNAT");
 
-    jTable2.setModel(new javax.swing.table.DefaultTableModel(
-        new Object [][] {
-            {null, null, null, null},
-            {null, null, null, null},
-            {null, null, null, null},
-            {null, null, null, null}
-        },
-        new String [] {
-            "Title 1", "Title 2", "Title 3", "Title 4"
-        }
-    ));
     modelTable2 = new javax.swing.table.DefaultTableModel(
         new Object [][] {
 
@@ -315,7 +293,6 @@ jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             "Professor/a de guardia", "Lloc"
         }
     );
-
     jTable2.setModel(modelTable2);
     jTable2.setRowHeight(30);
 
@@ -323,7 +300,7 @@ jComboBox1.addActionListener(new java.awt.event.ActionListener() {
     jTable2.setModel(modelTable2);
     jTable2.getTableHeader().setReorderingAllowed(false);
 
-    String[] icons = new String[]{"/org/iesapp/modules/guardies/icons/blank.gif"};
+    Icon[] icons = new Icon[]{IconUtils.getBlankIcon()};
 
     jTable2.getColumnModel().getColumn(0).setCellRenderer(new CellRendererFaltes2());
     jTable2.getColumnModel().getColumn(1).setCellRenderer(new MyIconLabelRenderer(icons));
@@ -397,7 +374,7 @@ jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
     );
 
-    jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/exit.gif"))); // NOI18N
+    jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/exit.gif"))); // NOI18N
     jButton2.setText("Tanca");
     jButton2.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {

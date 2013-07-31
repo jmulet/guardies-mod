@@ -374,7 +374,7 @@ jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE))
     );
 
-    jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/exit.gif"))); // NOI18N
+    jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/exit.gif"))); // NOI18N
     jButton2.setText("Tanca");
     jButton2.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {

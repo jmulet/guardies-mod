@@ -121,7 +121,7 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/iesapp/guardies/icons/delete.gif"/>
+          <Image iconType="3" name="/org/iesapp/modules/guardies/icons/delete.gif"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Esborra"/>
         <Property name="name" type="java.lang.String" value="jButton1" noResource="true"/>
@@ -133,7 +133,7 @@
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/iesapp/guardies/icons/exit.gif"/>
+          <Image iconType="3" name="/org/iesapp/modules/guardies/icons/exit.gif"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Surt"/>
         <Property name="name" type="java.lang.String" value="jButton2" noResource="true"/>

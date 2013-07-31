@@ -135,7 +135,7 @@ public class DlgEspais extends javax.swing.JDialog {
 
         jLabel1.setText("Aules o espais disponibles");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/exit.gif"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/exit.gif"))); // NOI18N
         jButton1.setText("Aplica i Tanca");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -143,7 +143,7 @@ public class DlgEspais extends javax.swing.JDialog {
             }
         });
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/insert.gif"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/insert.gif"))); // NOI18N
         jButton2.setText("Inserta");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -151,6 +151,7 @@ public class DlgEspais extends javax.swing.JDialog {
             }
         });
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/genera.gif"))); // NOI18N
         jButton3.setText("Autogenera");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

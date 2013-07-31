@@ -9,9 +9,13 @@ import ch.swingfx.twinkle.style.INotificationStyle;
 import ch.swingfx.twinkle.style.theme.DarkDefaultNotification;
 import ch.swingfx.twinkle.window.Positions;
 import com.l2fprod.common.swing.StatusBar;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Desktop;
+import java.awt.Dimension;
 import java.awt.FileDialog;
+import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -61,7 +65,6 @@ import org.iesapp.clients.iesdigital.spaces.BeanEspai;
 import org.iesapp.framework.admin.cfg.ChangePwd;
 import org.iesapp.framework.admin.cfg.SgdConfig;
 import org.iesapp.framework.data.User;
-import org.iesapp.framework.dialogs.AboutDlg;
 import org.iesapp.framework.pluggable.StatusBarZone;
 import org.iesapp.framework.pluggable.TopModuleWindow;
 import org.iesapp.framework.util.CoreCfg;
@@ -129,7 +132,7 @@ public class GuardiesModule extends TopModuleWindow {
     public void postInitialize(){
         //This is the coreExtension
         cfg = new Cfg(coreCfg);   
-       
+        
         // estableix el dia de setmana
         ControlData cd = new ControlData(cfg);
         ctrlDia = cd.getDataSQL();
@@ -359,31 +362,54 @@ public class GuardiesModule extends TopModuleWindow {
         ;
         jTable1 = new javax.swing.JTable(){
 
+            @Override
             public boolean isCellEditable(int rowIndex, int colIndex) {
                 return false;   //Disallow the editing of any cell
             }
 
-            public Component prepareRenderer
-            (TableCellRenderer renderer, int row, int column)
+            @Override
+            public Component prepareRenderer(TableCellRenderer renderer, int row, int column)
             {
-                Component c = super.prepareRenderer( renderer, row, column);
+                Component c = super.prepareRenderer(renderer, row, column);
                 // We want renderer component to be
                 //transparent so background image is visible
-                if( c instanceof JComponent )
-                ((JComponent)c).setOpaque(!esfestiu);
+                if( c instanceof JComponent ){
+                    ((JComponent)c).setOpaque(getRowCount()>0);
+                }
                 return c;
             }
 
-            ImageIcon image = new ImageIcon( new ImageIcon(getClass().getResource("/iesapp/guardies/icons/holiday.jpg")).getImage() );
-            public void paint(java.awt.Graphics g )
+            //ImageIcon image = (ImageIcon) IconUtils.getIconResource(getClass().getClassLoader(), "org/iesapp/modules/guardies/icons/holiday.jpg");
+
+            @Override
+            public void paintComponent(java.awt.Graphics g )
             {
                 // tile the background image
-                java.awt.Dimension d = getSize();
-                for( int x = 0; x < d.width; x += image.getIconWidth() )
-                for( int y = 0; y < d.height; y += image.getIconHeight() )
-                g.drawImage( image.getImage(), x, y, null, null );
+                //java.awt.Dimension d = getSize();
+                //for( int x = 0; x < d.width; x += image.getIconWidth() )
+                //for( int y = 0; y < d.height; y += image.getIconHeight() )
+                //g.drawImage( image.getImage(), x, y, null, null );
                 // Now let the paint do its usual work
-                super.paint(g);
+                //super.paint(g);
+                super.paintComponent(g);
+                if(esfestiu)
+                {
+                    Graphics2D g2d = (Graphics2D) g;
+                    int fontSize = 20;
+                    Dimension d = this.getSize();
+
+                    g2d.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
+                    g2d.setColor(Color.red);
+                    g2d.drawString("-- Dia no lectiu --", d.width/2 - 80, 30);
+                }
+                else if(getRowCount()==0)
+                {
+                    Graphics2D g2d = (Graphics2D) g;
+                    int fontSize = 20;
+                    g2d.setFont(new Font("TimesRoman", Font.PLAIN, fontSize));
+                    g2d.setColor(Color.black);
+                    g2d.drawString("No records found", 10, 30);
+                }
             }
         };
         jAlphabetPanel = new org.iesapp.modules.guardies.AlfabetPanel(this);  //new javax.swing.JPanel();
@@ -639,7 +665,8 @@ public class GuardiesModule extends TopModuleWindow {
         jMenuBar1.add(jMenu6);
 
         jTable1.setOpaque(false);
-        jTable1.setFillsViewportHeight( esfestiu );
+        jTable1.setFillsViewportHeight( false );
+        //esfestiu && jTable1.getRowCount()>0
 
         modelTable1 = new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -650,7 +677,6 @@ public class GuardiesModule extends TopModuleWindow {
                 "4a hora", "5a hora", "6a hora", "7a hora"
             }
         );
-        jTable1.setModel(modelTable1);
         jTable1.setModel(modelTable1);
         jTable1.getTableHeader().setReorderingAllowed(false);
         jTable1.getColumnModel().getColumn(0).setCellRenderer(new CellRenderer());
@@ -681,7 +707,7 @@ public class GuardiesModule extends TopModuleWindow {
 
         jAlphabetPanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 17, 5));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/guardiaIcon.gif"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/guardiaIcon.gif"))); // NOI18N
         jButton1.setText("Guàrdies");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -689,16 +715,16 @@ public class GuardiesModule extends TopModuleWindow {
             }
         });
 
-        legendaNoDeterminat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/icon01.gif"))); // NOI18N
+        legendaNoDeterminat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/icon01.gif"))); // NOI18N
         legendaNoDeterminat.setText("Pendent");
 
-        legendaSignat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/icon02.gif"))); // NOI18N
+        legendaSignat.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/icon02.gif"))); // NOI18N
         legendaSignat.setText("Signat");
 
-        legendaNoHiEs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/icon03.gif"))); // NOI18N
+        legendaNoHiEs.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/icon03.gif"))); // NOI18N
         legendaNoHiEs.setText("Falta");
 
-        legendaSortida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/icon04.gif"))); // NOI18N
+        legendaSortida.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/icon04.gif"))); // NOI18N
         legendaSortida.setText("Sortida");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentContainer());
@@ -728,7 +754,7 @@ public class GuardiesModule extends TopModuleWindow {
                 .addComponent(jAlphabetPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 252, Short.MAX_VALUE)
-                .addGap(6, 6, 6)
+                .addGap(1, 1, 1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(legendaNoDeterminat)

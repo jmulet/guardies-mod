@@ -4,6 +4,7 @@
  */
 package org.iesapp.modules.guardies;
 
+
 import com.toedter.calendar.JSpinnerDateEditor;
 import java.awt.Color;
 import java.beans.PropertyChangeListener;
@@ -74,24 +75,21 @@ public class DateChooser extends JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(3, 3, 3)
+                .addGap(4, 4, 4)
                 .addComponent(jDay)
-                .addGap(5, 5, 5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
-                .addComponent(jIconDay))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jIconDay)
+                .addGap(2, 2, 2))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jDay, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jIconDay, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addComponent(jDay))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(1, 1, 1)
-                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addComponent(jIconDay))
+                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -112,13 +110,15 @@ public class DateChooser extends JPanel {
 
        if(ara.equals(triat))
        {
-          jIconDay.setIcon(null);
+          jIconDay.setIcon(new ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/blank.gif")));
           jIconDay.setToolTipText(null);
+          jIconDay.setVisible(false);
         }
         else
         {
           jIconDay.setIcon(  new ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/diaalert.gif")) );
           jIconDay.setToolTipText("Torna al dia d'avui");
+          jIconDay.setVisible(true);
        }
 
        if(cd2.getIntDia()>5 || new DatesControl(cd2.getDate(),cfg.getCoreCfg().getIesClient()).esFestiu())

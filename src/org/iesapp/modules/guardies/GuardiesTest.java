@@ -4,6 +4,7 @@
  */
 package org.iesapp.modules.guardies;
 
+import javax.swing.SwingUtilities;
 import org.iesapp.framework.pluggable.DockingFrameworkApp;
 
 /**
@@ -40,7 +41,7 @@ public class GuardiesTest extends DockingFrameworkApp {
     
     
      public static void main(String[] args) {
-           java.awt.EventQueue.invokeLater(new DisplayApp(args));     
+           SwingUtilities.invokeLater(new DisplayApp(args));     
     }
      
     private static class DisplayApp implements Runnable

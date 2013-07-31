@@ -178,7 +178,7 @@ public class DlgFestius extends javax.swing.JDialog {
 
         jLabel1.setText("Períodes festius amb els dies d'inici i final inclosos");
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/exit.gif"))); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/exit.gif"))); // NOI18N
         jButton1.setText("Aplica i Tanca");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,7 +188,7 @@ public class DlgFestius extends javax.swing.JDialog {
 
         jLabel2.setText("Afegeix un nou període no lectiu");
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/iesapp/guardies/icons/insert.gif"))); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/iesapp/modules/guardies/icons/insert.gif"))); // NOI18N
         jButton2.setText("Inserta");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

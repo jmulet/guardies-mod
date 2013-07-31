@@ -52,7 +52,7 @@
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/iesapp/guardies/icons/exit.gif"/>
+          <Image iconType="3" name="/org/iesapp/modules/guardies/icons/exit.gif"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Tanca"/>
       </Properties>
@@ -254,7 +254,7 @@
                 <Component class="javax.swing.JButton" name="jButton3">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/iesapp/guardies/icons/genera.gif"/>
+                      <Image iconType="3" name="/org/iesapp/modules/guardies/icons/genera.gif"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Genera"/>
                   </Properties>
@@ -336,7 +336,7 @@
                 <Component class="javax.swing.JButton" name="jButton2">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/iesapp/guardies/icons/envia.gif"/>
+                      <Image iconType="3" name="/org/iesapp/modules/guardies/icons/envia.gif"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Envia"/>
                   </Properties>
@@ -429,7 +429,7 @@
                 <Component class="javax.swing.JButton" name="jButton4">
                   <Properties>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/iesapp/guardies/icons/delete.gif"/>
+                      <Image iconType="3" name="/org/iesapp/modules/guardies/icons/delete.gif"/>
                     </Property>
                     <Property name="text" type="java.lang.String" value="Esborra&apos;ls"/>
                   </Properties>

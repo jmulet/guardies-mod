@@ -399,7 +399,7 @@
             <Component class="javax.swing.JButton" name="jButton1">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/iesapp/guardies/icons/save.gif"/>
+                  <Image iconType="3" name="/org/iesapp/modules/guardies/icons/save.gif"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Desa"/>
               </Properties>
@@ -410,7 +410,7 @@
             <Component class="javax.swing.JButton" name="jButton2">
               <Properties>
                 <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/iesapp/guardies/icons/exit.gif"/>
+                  <Image iconType="3" name="/org/iesapp/modules/guardies/icons/exit.gif"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Tanca"/>
               </Properties>
@@ -420,8 +420,8 @@
             </Component>
             <Component class="javax.swing.JButton" name="jButton3">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" noResource="true" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="3" name="/iesapp/guardies/icons/view.gif"/>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="3" name="/org/iesapp/modules/guardies/icons/informesIcon.gif"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Informe"/>
               </Properties>

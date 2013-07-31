@@ -359,7 +359,7 @@
               <Component id="jAlphabetPanel" min="-2" pref="69" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
               <Component id="jScrollPane1" pref="252" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton1" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                   <Component id="legendaNoDeterminat" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -395,9 +395,9 @@
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTable1KeyPressed"/>
           </Events>
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable(){&#xa;&#xa;    public boolean isCellEditable(int rowIndex, int colIndex) {&#xa;        return false;   //Disallow the editing of any cell&#xa;    }&#xa;&#xa;    public Component prepareRenderer&#xa;    (TableCellRenderer renderer, int row, int column)&#xa;    {&#xa;        Component c = super.prepareRenderer( renderer, row, column);&#xa;        // We want renderer component to be&#xa;        //transparent so background image is visible&#xa;        if( c instanceof JComponent )&#xa;        ((JComponent)c).setOpaque(!esfestiu);&#xa;        return c;&#xa;    }&#xa;&#xa;    ImageIcon image = new ImageIcon( new ImageIcon(getClass().getResource(&quot;/iesapp/guardies/icons/holiday.jpg&quot;)).getImage() );&#xa;    public void paint(java.awt.Graphics g )&#xa;    {&#xa;        // tile the background image&#xa;        java.awt.Dimension d = getSize();&#xa;        for( int x = 0; x &lt; d.width; x += image.getIconWidth() )&#xa;        for( int y = 0; y &lt; d.height; y += image.getIconHeight() )&#xa;        g.drawImage( image.getImage(), x, y, null, null );&#xa;        // Now let the paint do its usual work&#xa;        super.paint(g);&#xa;    }&#xa;}"/>
-            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTable1.setModel(modelTable1);&#xa;jTable1.getTableHeader().setReorderingAllowed(false);&#xa;jTable1.getColumnModel().getColumn(0).setCellRenderer(new CellRenderer());&#xa;jTable1.getColumnModel().getColumn(1).setCellRenderer(new CellRenderer());&#xa;jTable1.getColumnModel().getColumn(2).setCellRenderer(new CellRenderer());&#xa;jTable1.getColumnModel().getColumn(3).setCellRenderer(new CellRenderer());&#xa;jTable1.getColumnModel().getColumn(4).setCellRenderer(new CellRenderer());&#xa;jTable1.getColumnModel().getColumn(5).setCellRenderer(new CellRenderer());&#xa;jTable1.getColumnModel().getColumn(6).setCellRenderer(new CellRenderer());&#xa;jTable1.getColumnModel().getColumn(7).setCellRenderer(new CellRenderer());&#xa;&#xa;jTable1.setRowHeight(cfg.alturaCella);&#xa;&#xa;TableColumn col = jTable1.getColumnModel().getColumn(0);&#xa;col.setPreferredWidth(120);&#xa;//col.setResizable(false);"/>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jTable1.setOpaque(false);&#xa;jTable1.setFillsViewportHeight( esfestiu );&#xa;&#xa;    modelTable1 = new javax.swing.table.DefaultTableModel(&#xa;            new Object [][] {&#xa;&#xa;            },&#xa;            new String [] {&#xa;                &quot;Personal&quot;, &quot;1a hora&quot;, &quot;2a hora&quot;, &quot;3a hora&quot;,&#xa;                &quot;4a hora&quot;, &quot;5a hora&quot;, &quot;6a hora&quot;, &quot;7a hora&quot;&#xa;            }&#xa;        );"/>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTable(){&#xa;&#xa;    @Override&#xa;    public boolean isCellEditable(int rowIndex, int colIndex) {&#xa;        return false;   //Disallow the editing of any cell&#xa;    }&#xa;&#xa;    @Override&#xa;    public Component prepareRenderer(TableCellRenderer renderer, int row, int column)&#xa;    {&#xa;        Component c = super.prepareRenderer(renderer, row, column);&#xa;        // We want renderer component to be&#xa;        //transparent so background image is visible&#xa;        if( c instanceof JComponent ){&#xa;            ((JComponent)c).setOpaque(getRowCount()&gt;0);&#xa;        }&#xa;        return c;&#xa;    }&#xa;&#xa;    //ImageIcon image = (ImageIcon) IconUtils.getIconResource(getClass().getClassLoader(), &quot;org/iesapp/modules/guardies/icons/holiday.jpg&quot;);&#xa;&#xa;    @Override&#xa;    public void paintComponent(java.awt.Graphics g )&#xa;    {&#xa;        // tile the background image&#xa;        //java.awt.Dimension d = getSize();&#xa;        //for( int x = 0; x &lt; d.width; x += image.getIconWidth() )&#xa;        //for( int y = 0; y &lt; d.height; y += image.getIconHeight() )&#xa;        //g.drawImage( image.getImage(), x, y, null, null );&#xa;        // Now let the paint do its usual work&#xa;        //super.paint(g);&#xa;        super.paintComponent(g);&#xa;        if(esfestiu)&#xa;        {&#xa;            Graphics2D g2d = (Graphics2D) g;&#xa;            int fontSize = 20;&#xa;            Dimension d = this.getSize();&#xa;&#xa;            g2d.setFont(new Font(&quot;TimesRoman&quot;, Font.PLAIN, fontSize));&#xa;            g2d.setColor(Color.red);&#xa;            g2d.drawString(&quot;-- Dia no lectiu --&quot;, d.width/2 - 80, 30);&#xa;        }&#xa;        else if(getRowCount()==0)&#xa;        {&#xa;            Graphics2D g2d = (Graphics2D) g;&#xa;            int fontSize = 20;&#xa;            g2d.setFont(new Font(&quot;TimesRoman&quot;, Font.PLAIN, fontSize));&#xa;            g2d.setColor(Color.black);&#xa;            g2d.drawString(&quot;No records found&quot;, 10, 30);&#xa;        }&#xa;    }&#xa;}"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jTable1.getTableHeader().setReorderingAllowed(false);&#xa;jTable1.getColumnModel().getColumn(0).setCellRenderer(new CellRenderer());&#xa;jTable1.getColumnModel().getColumn(1).setCellRenderer(new CellRenderer());&#xa;jTable1.getColumnModel().getColumn(2).setCellRenderer(new CellRenderer());&#xa;jTable1.getColumnModel().getColumn(3).setCellRenderer(new CellRenderer());&#xa;jTable1.getColumnModel().getColumn(4).setCellRenderer(new CellRenderer());&#xa;jTable1.getColumnModel().getColumn(5).setCellRenderer(new CellRenderer());&#xa;jTable1.getColumnModel().getColumn(6).setCellRenderer(new CellRenderer());&#xa;jTable1.getColumnModel().getColumn(7).setCellRenderer(new CellRenderer());&#xa;&#xa;jTable1.setRowHeight(cfg.alturaCella);&#xa;&#xa;TableColumn col = jTable1.getColumnModel().getColumn(0);&#xa;col.setPreferredWidth(120);&#xa;//col.setResizable(false);"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="jTable1.setOpaque(false);&#xa;jTable1.setFillsViewportHeight( false );&#xa;//esfestiu &amp;&amp; jTable1.getRowCount()&gt;0&#xa;&#xa;modelTable1 = new javax.swing.table.DefaultTableModel(&#xa;            new Object [][] {&#xa;&#xa;            },&#xa;            new String [] {&#xa;                &quot;Personal&quot;, &quot;1a hora&quot;, &quot;2a hora&quot;, &quot;3a hora&quot;,&#xa;                &quot;4a hora&quot;, &quot;5a hora&quot;, &quot;6a hora&quot;, &quot;7a hora&quot;&#xa;            }&#xa;        );"/>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
           </AuxValues>
         </Component>
@@ -416,8 +416,8 @@
     </Container>
     <Component class="javax.swing.JButton" name="jButton1">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" noResource="true" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/iesapp/guardies/icons/guardiaIcon.gif"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/org/iesapp/modules/guardies/icons/guardiaIcon.gif"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Gu&#xe0;rdies"/>
       </Properties>
@@ -428,7 +428,7 @@
     <Component class="javax.swing.JLabel" name="legendaNoDeterminat">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/iesapp/guardies/icons/icon01.gif"/>
+          <Image iconType="3" name="/org/iesapp/modules/guardies/icons/icon01.gif"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Pendent"/>
       </Properties>
@@ -436,7 +436,7 @@
     <Component class="javax.swing.JLabel" name="legendaSignat">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/iesapp/guardies/icons/icon02.gif"/>
+          <Image iconType="3" name="/org/iesapp/modules/guardies/icons/icon02.gif"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Signat"/>
       </Properties>
@@ -444,7 +444,7 @@
     <Component class="javax.swing.JLabel" name="legendaNoHiEs">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/iesapp/guardies/icons/icon03.gif"/>
+          <Image iconType="3" name="/org/iesapp/modules/guardies/icons/icon03.gif"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Falta"/>
       </Properties>
@@ -452,7 +452,7 @@
     <Component class="javax.swing.JLabel" name="legendaSortida">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/iesapp/guardies/icons/icon04.gif"/>
+          <Image iconType="3" name="/org/iesapp/modules/guardies/icons/icon04.gif"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Sortida"/>
       </Properties>
